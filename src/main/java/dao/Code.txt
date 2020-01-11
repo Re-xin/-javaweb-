@@ -1,0 +1,26 @@
+INSERT INTO patient VALUES(NULL,'新酱','男',18,'111111','住院','2019-5-16',NULL,'头痛科',5,100,5000,NULL)
+INSERT INTO patient VALUES(NULL,'球球','女',16,'222222','住院','2019-5-15',NULL,'脚痛科',6,100,6000,NULL)
+INSERT INTO patient VALUES(NULL,'张三','男',17,'333333','住院','2019-5-14',NULL,'心血科',7,100,7000,NULL)
+
+
+ALTER TABLE patient ADD FOREIGN KEY (bed) REFERENCES bed (bed);
+
+
+SELECT DATEPART(yyyy,atime) AS bedYear,
+DATEPART(mm,atime) AS bedMonth,
+DATEPART(dd,atime) AS bedDay
+FROM patient
+
+SELECT DISTINCT EXTRACT(YEAR FROM atime) AS YEAR,
+EXTRACT(MONTH FROM atime) AS MONTH
+FROM patient
+
+
+SELECT YEAR(atime),MONTH(atime),SUM(expenses)
+FROM patient
+GROUP BY YEAR(atime)
+, MONTH(atime)
+
+SELECT department,SUM(expenses)
+FROM patient
+GROUP BY department

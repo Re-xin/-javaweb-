@@ -1,0 +1,5 @@
+index.html 主页
+list.jsp   患者管理界面
+login.jsp  登入界面
+patientinfo 患者信息界面，可以更改患者的信息
+register  预约挂号界面
